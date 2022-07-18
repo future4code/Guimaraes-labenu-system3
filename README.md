@@ -1,4 +1,13 @@
-## LabenuSystem:
+<div align="center" > <img width="100vw" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-system-data-analytics-flaticons-lineal-color-flat-icons-2.png"/>
+ <h1 align="center"><strong>Labenu System 3</b></strong></h1></div>
+
+<h3>👨‍💻👩‍💻 Desenvolvedores</h3>
+
+- Caio Porto Ramos
+- Camila Coradi Garcia Leal
+- Laíne Reis de Moura
+
+<hr>
 
 Você estuda na Labenu_ há tanto tempo que já parecem anos, não é? Então, hoje, vamos pedir para criar um sistema que represente o básico da nossa organização. 
 
