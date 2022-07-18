@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid'
 export class Usuario {
   constructor(
     protected id: string,
@@ -5,7 +6,7 @@ export class Usuario {
     protected email: string,
     protected dataNasc: string,
     protected turmaId: string
-  ) {}
+  ) {this.id = uuid()}
 
   getId(): string {
     return this.id;
