@@ -1,9 +1,15 @@
-import knex from "knex"
-import dotenv from "dotenv"
+import knex from "knex";
+import dotenv from "dotenv";
 
-dotenv.config()
 
-export const connection = knex({
+dotenv.config({
+   // path: './env'
+});
+
+
+export class BaseDatabase {
+
+protected static connection = knex({
    client: "mysql",
    connection: {
       host: process.env.DB_HOST,
@@ -12,5 +18,7 @@ export const connection = knex({
       password: process.env.DB_PASSWORD,
       database: process.env.DB_SCHEMA,
       multipleStatements: true
-   }
+   },
 })
+
+}
