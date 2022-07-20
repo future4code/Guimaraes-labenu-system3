@@ -14,7 +14,7 @@ export class TurmaDatabase extends BaseDatabase {
 
   getTurmas = async (): Promise<void> => {
     try {
-      await TurmaDatabase.connection("TURMA");
+      return await TurmaDatabase.connection("TURMA");
     } catch (error: any) {
       throw new Error(error.sqlMessage);
     }
