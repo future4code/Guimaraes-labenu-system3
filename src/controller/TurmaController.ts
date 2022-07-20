@@ -28,8 +28,9 @@ export class TurmaController {
 
     try {
       const turmaDB = new TurmaDatabase();
-      await turmaDB.getTurmas;
-      res.status(200).send(turmaDB);
+      const allTurmas = await turmaDB.getTurmas();
+      console.log(allTurmas)
+      res.status(200).send(allTurmas);
     } catch (error: any) {
       res.status(statusCode).end();
     }
