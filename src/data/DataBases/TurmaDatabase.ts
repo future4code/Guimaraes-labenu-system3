@@ -19,4 +19,14 @@ export class TurmaDatabase extends BaseDatabase {
       throw new Error(error.sqlMessage);
     }
   };
+
+  changeModule = async (id: string, novoModulo: string): Promise<void> => {
+    try {
+      await TurmaDatabase.connection("TURMA")
+        .where("id", id)
+        .update({ modulo: novoModulo });
+    } catch (error: any) {
+      throw new Error(error.sqlMessage);
+    }
+  };
 }

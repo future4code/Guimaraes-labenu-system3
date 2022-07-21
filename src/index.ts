@@ -7,13 +7,16 @@ import EstudanteController from "./controller/EstudanteController";
 const getTurmas = new TurmaController();
 app.get("/turmas", getTurmas.getTurmas);
 
-//Create stuff:
+//Create turmas:
 const turmaController = new TurmaController();
 app.post("/turmas", turmaController.criarTurma);
 
+//Update turmas:
+const updateModulo = new TurmaController();
+app.put("/turmas", updateModulo.changeModule);
 //Get estudantes
-const getEstudante = new EstudanteController()
-app.get("/estudantes", getEstudante.getAllStudents)
+const getEstudante = new EstudanteController();
+app.get("/estudantes", getEstudante.getAllStudents);
 
 //Create estudante
 
@@ -24,4 +27,3 @@ app.post("/estudantes", estudanteController.createStudent);
 app.get("/test", (req: Request, res: Response) => {
   res.status(200).send("Servidor em pé! 👣");
 });
-
