@@ -29,8 +29,28 @@ export class TurmaController {
     try {
       const turmaDB = new TurmaDatabase();
       const allTurmas = await turmaDB.getTurmas();
-      console.log(allTurmas)
+      console.log(allTurmas);
       res.status(200).send(allTurmas);
+    } catch (error: any) {
+      res.status(statusCode).end();
+    }
+  };
+
+  changeModule = async (req: Request, res: Response): Promise<void> => {
+    let statusCode = 400;
+
+    try {
+      const { id, modulo } = req.body;
+      if (!id) {
+        throw new Error("Parâmetro 'id' faltando. Favor tentar novamente.");
+      }
+      if (!modulo) {
+        throw new Error("Parâmetro 'modulo' faltando. Favor tentar novamente.");
+      }
+      const turmaDB = new TurmaDatabase();
+      await turmaDB.changeModule(id, modulo);
+
+      res.status(200).send();
     } catch (error: any) {
       res.status(statusCode).end();
     }
