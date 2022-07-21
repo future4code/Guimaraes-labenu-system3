@@ -27,12 +27,22 @@ export default class EstudanteController {
         try {
             const { nome, email, data_nasc, turma_id, hobbies } = req.body
 
+
             // if(!nome) {
             //     throw new Error("Parâmetro 'nome' faltando. Favor tentar novamente.");
             //   }
 
             const newId = generateId()
-            const estudante = new Estudantes(newId, nome, email, data_nasc, turma_id, hobbies)
+            const newDate = moment(data_nasc, "DD/MM/YYYY").format("YYYY-MM-DD")
+            const estudante = new Estudantes(
+                newId,
+                nome,
+                email,
+                newDate,
+                turma_id,
+                hobbies)
+                
+                
             const estudanteDB = new EstudanteDatabase()
 
             await estudanteDB.createStudent(estudante)
@@ -40,9 +50,10 @@ export default class EstudanteController {
             res.status(200).send('Estudante adicionado')
 
         } catch (error: any) {
-            res.status(statusCode).send(error.sqlMessage || error.message) 
+            res.status(statusCode).send(error.sqlMessage || error.message)
 
         }
 
     }
 }
+

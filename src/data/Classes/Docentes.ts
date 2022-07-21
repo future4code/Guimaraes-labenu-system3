@@ -5,7 +5,7 @@ export class Docentes extends Usuario {
     protected id: string,
     protected nome: string,
     protected email: string,
-    protected data_nasc: Date,
+    protected data_nasc: string,
     protected turmaId: string,
     protected especialidades: []
   ) {
