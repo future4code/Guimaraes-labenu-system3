@@ -4,7 +4,7 @@ export class Usuario {
     protected id: string,
     protected nome: string,
     protected email: string,
-    protected dataNasc: string,
+    protected data_nasc: Date,
     protected turmaId: string
   ) {this.id = uuid()}
 
@@ -19,8 +19,8 @@ export class Usuario {
   getEmail(): string {
     return this.email;
   }
-  getDataNasc(): string {
-    return this.dataNasc;
+  getDataNasc(): Date {
+    return this.data_nasc;
   }
   getTurmaId(): string {
     return this.turmaId;

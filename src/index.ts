@@ -17,8 +17,8 @@ app.get("/estudantes", getEstudante.getAllStudents)
 
 //Create estudante
 
-// const estudanteController = new EstudanteController();
-// app.post("/estudantes", estudanteController.createStudent);
+const estudanteController = new EstudanteController();
+app.post("/estudantes", estudanteController.createStudent);
 /* */
 
 app.get("/test", (req: Request, res: Response) => {

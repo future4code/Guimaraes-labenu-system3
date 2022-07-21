@@ -8,16 +8,41 @@ export default class EstudanteController {
 
     getAllStudents = async (req: Request, res: Response): Promise<void> => {
         let statusCode = 400;
-    
-        try {
-          const estudantesDB = new EstudanteDatabase();
-          const estudantes = await estudantesDB.getStudents();
-          console.log(estudantes);
-          
-          res.status(200).send(estudantes);
-        } catch (error: any) {
-          res.status(statusCode).end();
-        }
-      };
 
+        try {
+            const estudantesDB = new EstudanteDatabase();
+            const estudantes = await estudantesDB.getStudents();
+            console.log(estudantes);
+
+            res.status(200).send(estudantes);
+        } catch (error: any) {
+            res.status(statusCode).end();
+        }
+    };
+
+
+    createStudent = async (req: Request, res: Response): Promise<void> => {
+        let statusCode = 400
+
+        try {
+            const { nome, email, data_nasc, turma_id, hobbies } = req.body
+
+            // if(!nome) {
+            //     throw new Error("Parâmetro 'nome' faltando. Favor tentar novamente.");
+            //   }
+
+            const newId = generateId()
+            const estudante = new Estudantes(newId, nome, email, data_nasc, turma_id, hobbies)
+            const estudanteDB = new EstudanteDatabase()
+
+            await estudanteDB.createStudent(estudante)
+
+            res.status(200).send('Estudante adicionado')
+
+        } catch (error: any) {
+            res.status(statusCode).send(error.sqlMessage || error.message) 
+
+        }
+
+    }
 }

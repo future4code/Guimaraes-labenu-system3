@@ -5,13 +5,13 @@ export class Estudantes extends Usuario {
     public id: string,
     public nome: string,
     public email: string,
-    public data_nasc: string,
+    public data_nasc: Date,
     public turma_id: string,
-    public hobbies: []
+    public hobbies: string[]
   ) {
     super(id, nome, email, data_nasc, turma_id);
   }
-  getHobbies(): [] {
+  getHobbies(): string[] {
     return this.hobbies;
   }
 }

@@ -20,7 +20,13 @@ getStudents = async ():Promise<void> => {
 
 createStudent = async (estudante: Estudantes): Promise<void> => {
     try {
-       return await EstudanteDatabase.connection("ESTUDANTE").insert(estudante);
+        await EstudanteDatabase.connection("ESTUDANTE").insert({
+            id: estudante.getId(),
+            nome: estudante.getNome(), 
+            email: estudante.getEmail(),
+            data_nasc: estudante.getDataNasc(),
+            turma_id: estudante.getTurmaId()
+         });
     } catch (error: any) {
         throw new Error(error.sqlMessage);
       }

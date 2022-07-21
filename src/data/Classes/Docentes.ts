@@ -5,11 +5,11 @@ export class Docentes extends Usuario {
     protected id: string,
     protected nome: string,
     protected email: string,
-    protected dataNasc: string,
+    protected data_nasc: Date,
     protected turmaId: string,
     protected especialidades: []
   ) {
-    super(id, nome, email, dataNasc, turmaId);
+    super(id, nome, email, data_nasc, turmaId);
   }
   getEspecialidades(): [] {
     return this.especialidades;
