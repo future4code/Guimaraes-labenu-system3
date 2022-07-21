@@ -2,16 +2,16 @@ import { Usuario } from "../SuperClasses/Usuario";
 
 export class Estudantes extends Usuario {
   constructor(
-    protected id: string,
-    protected nome: string,
-    protected email: string,
-    protected dataNasc: string,
-    protected turmaId: string,
-    protected hobbies: []
+    public id: string,
+    public nome: string,
+    public email: string,
+    public data_nasc: Date,
+    public turma_id: string,
+    public hobbies: string[]
   ) {
-    super(id, nome, email, dataNasc, turmaId);
+    super(id, nome, email, data_nasc, turma_id);
   }
-  getHobbies(): [] {
+  getHobbies(): string[] {
     return this.hobbies;
   }
 }
