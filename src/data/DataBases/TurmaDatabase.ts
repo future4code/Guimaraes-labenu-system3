@@ -1,6 +1,4 @@
 import { BaseDatabase } from "../BaseDatabase";
-import { Request, Response } from "express";
-import { v4 as generateId } from "uuid";
 import { Turma } from "../Classes/Turma";
 
 export class TurmaDatabase extends BaseDatabase {

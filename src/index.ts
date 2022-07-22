@@ -25,17 +25,19 @@ const estudanteController = new EstudanteController();
 app.post("/estudantes", estudanteController.createStudent);
 /* */
 
+
+
 //Get docentes:
 const getDocentes = new DocenteController();
-app.get('/docentes', getDocentes.getAllTeachers);
+app.get("/docentes", getDocentes.getAllTeachers);
 
 //Create docente:
 const docenteController = new DocenteController();
-app.post('/docentes', docenteController.createTeachers);
+app.post("/docentes", docenteController.createTeachers);
 
 //Update docente:
 const updateModuloDocente = new DocenteController();
-app.put('/docentes', updateModuloDocente.changeModuleTeachers)
+app.put("/docentes", updateModuloDocente.changeModuleTeachers);
 
 app.get("/test", (req: Request, res: Response) => {
   res.status(200).send("Servidor em pé! 👣");

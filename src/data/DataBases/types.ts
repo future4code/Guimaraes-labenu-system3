@@ -18,7 +18,7 @@ export type instructorSkill = {
 };
 //Estudante:
 export type Hobby = {
-  id: number;
+  id: string;
   name: string;
 };
 //Docente:
