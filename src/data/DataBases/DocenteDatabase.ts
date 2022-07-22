@@ -1,6 +1,5 @@
 import { Docentes } from "../Classes/Docentes";
 import { BaseDatabase } from "../BaseDatabase";
-import { TurmaDatabase } from "./TurmaDatabase";
 
 //GET - Buscar todas as pessoas docentes
 export class DocenteDatabase extends BaseDatabase {
@@ -12,7 +11,7 @@ export class DocenteDatabase extends BaseDatabase {
     }
   };
 
-//POST - Criar docente
+  //POST - Criar docente
   createTeacher = async (docente: Docentes): Promise<void> => {
     try {
       await DocenteDatabase.connection("DOCENTE").insert({
@@ -26,19 +25,21 @@ export class DocenteDatabase extends BaseDatabase {
       throw new Error(error.sqlMessage);
     }
   };
-  
-//PUT - Mudar docente de turma
+
+  //PUT - Mudar docente de turma
   changeModuleTeacher = async (
-    id: string,
-    novoModulo: string
+    docenteId: string,
+    turmaId: string
   ): Promise<void> => {
     try {
       await DocenteDatabase.connection("DOCENTE")
-        .where("id", id)
-        // .update({ modulo: novoModulo });
-        await TurmaDatabase.connection('TURMA')
-        .update({modulo: novoModulo})
+        .update({ turma_id: turmaId })
+        .where("id", docenteId);
     } catch (error: any) {
+      console.error(
+        "Erro ao realizar update da mudança de turma para o docente",
+        error
+      );
       throw new Error(error.sqlMessage);
     }
   };

@@ -52,19 +52,19 @@ export default class DocenteController {
 
   changeModuleTeachers = async (req: Request, res: Response): Promise<void> => {
     let statusCode = 400;
-
     try {
-      const { id, modulo } = req.body;
-      if (!id) {
-        throw new Error("Parâmetro id requerido não enviado.");
+      const { docenteId, turmaId } = req.body;
+      if (!docenteId) {
+        throw new Error("Parâmetro docenteId requerido não enviado.");
       }
-      if (!modulo) {
-        throw new Error("Parâmetro modulo requerido não enviado.");
+      if (!turmaId) {
+        throw new Error("Parâmetro turmaId requerido não enviado.");
       }
       const docentesDB = new DocenteDatabase();
-      await docentesDB.changeModuleTeacher(id, modulo);
+      console.log(req.body);
+      await docentesDB.changeModuleTeacher(docenteId, turmaId);
 
-      res.status(200).send();
+      res.status(200).send("Mudança de docente efetuada com sucesso");
     } catch (error: any) {
       res.status(statusCode).end();
     }
