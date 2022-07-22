@@ -6,7 +6,7 @@ export class Docentes extends Usuario {
     protected nome: string,
     protected email: string,
     protected data_nasc: string,
-    protected turmaId: string,
+    public turmaId: string,
     protected especialidades: []
   ) {
     super(id, nome, email, data_nasc, turmaId);
