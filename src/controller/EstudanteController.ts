@@ -6,19 +6,25 @@ import moment from 'moment'
 
 export default class EstudanteController {
 
-    getAllStudents = async (req: Request, res: Response): Promise<void> => {
-        let statusCode = 400;
+
+    getStudentByName = async (req:Request, res:Response):Promise<void> => {
+        let statusCode = 400
 
         try {
-            const estudantesDB = new EstudanteDatabase();
-            const estudantes = await estudantesDB.getStudents();
-            console.log(estudantes);
+            let {nome} = req.query
+            if (!nome) {
+                throw new Error("Nome não encontrado")
+            }
 
-            res.status(200).send(estudantes);
-        } catch (error: any) {
-            res.status(statusCode).end();
+            const estudanteDB = new EstudanteDatabase()
+            const estudante = await estudanteDB.getStudentByName(nome as string)
+      
+            res.status(200).send(estudante)
+
+        } catch (error:any) {
+            res.status(statusCode).send(error.sqlMessage || error.message)
         }
-    };
+    }
 
 
     createStudent = async (req: Request, res: Response): Promise<void> => {
@@ -55,5 +61,25 @@ export default class EstudanteController {
         }
 
     }
+
+    // changeEstudante = async (req: Request, res: Response): Promise<void> => {
+    //     let statusCode = 400;
+    
+    //     try {
+    //       const { id, turma } = req.body;
+    //       if (!id) {
+    //         throw new Error("Parâmetro 'id' faltando. Favor tentar novamente.");
+    //       }
+    //       if (!turma) {
+    //         throw new Error("Parâmetro 'turma' faltando. Favor tentar novamente.");
+    //       }
+    //       const estudanteDB = new EstudanteDatabase();
+    //       await estudanteDB.changeEstudante(id, turma);
+    
+    //       res.status(200).send();
+    //     } catch (error: any) {
+    //       res.status(statusCode).end();
+    //     }
+    //   };
 }
 
