@@ -36,6 +36,17 @@ export class TurmaController {
     }
   };
 
+  getTurmaAtiva = async (req:Request, res:Response):Promise<void> => {
+    let statusCode = 400 
+    try {
+      const turmaDB = new TurmaDatabase()
+      const turma = await turmaDB.getTurmaAtiva()
+      res.status(200).send(turma)
+    } catch (error) {
+      res.status(statusCode).end();
+    }
+  }
+
   changeModule = async (req: Request, res: Response): Promise<void> => {
     let statusCode = 400;
 
