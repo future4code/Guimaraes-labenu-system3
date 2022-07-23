@@ -32,5 +32,6 @@ As funcionalidades básicas são:
 - [x] Criar turma
 - [ ] Buscar turmas ativas
 - [x] Mudar turma de módulo
+- [x] Criar estudante
 
 
