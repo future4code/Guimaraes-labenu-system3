@@ -50,7 +50,7 @@ export class TurmaController {
       const turmaDB = new TurmaDatabase();
       await turmaDB.changeModule(id, modulo);
 
-      res.status(200).send();
+      res.status(200).send(`Turma mudou para o modulo ${modulo}`);
     } catch (error: any) {
       res.status(statusCode).end();
     }
