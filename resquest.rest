@@ -66,6 +66,19 @@ Content-Type: application/json
 "docenteId":"745f2227-f98f-415c-8aa5-52dd9fe93e34",
 "turmaId":"25b907e6-7736-45dc-830d-5d65fc2c7ca9"
 }
+###
+
+//ESPECIALIDADE
+
+GET http://localhost:3003/especialidade
+###
+
+POST http://localhost:3003/especialidade
+Content-Type: application/json
+{
+    "nome":"POO (Programação Orientada a Objetos)"
+}
+
 
 
 
