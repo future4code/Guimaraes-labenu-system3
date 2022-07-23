@@ -1,50 +1,54 @@
 import { Estudantes } from "../Classes/Estudantes";
 import { BaseDatabase } from "../BaseDatabase";
-import {v4 as generateId} from 'uuid'
+import { v4 as generateId } from "uuid";
 import { Request, Response } from "express";
 import { Student } from "./types";
 
-
 export class EstudanteDatabase extends BaseDatabase {
-    
-//GET - Pega todos os estudantes 
+  //GET - Pega todos os estudantes:
 
-
-getStudentByName = async (nome:string):Promise<any> => {
+  getStudent = async (): Promise<void> => {
     try {
-        const resultado = await EstudanteDatabase.connection('ESTUDANTE')
-        .select('*')
-        .where('nome', 'like', `%${nome}%`)
-        return resultado
-
-    } catch (error:any) {
-        throw new Error(error.sqlMessage);
-    }
-}
-//POST - Cria estudante
-
-createStudent = async (estudante: Estudantes): Promise<void> => {
-    try {
-        await EstudanteDatabase.connection("ESTUDANTE")
-        .insert({
-            id: estudante.getId(),
-            nome: estudante.getNome(), 
-            email: estudante.getEmail(),
-            data_nasc: estudante.getDataNasc(),
-            turma_id: estudante.getTurmaId()
-         });
+      return await EstudanteDatabase.connection("ESTUDANTE");
     } catch (error: any) {
-        throw new Error(error.sqlMessage);
-      }
+      throw new Error(error.sqlMessage);
     }
+  };
+  //GET - Pega estudantes por nome:
 
-    // changeEstudante = async (id: string, novaTurma: string): Promise<void> => {
-    //     try {
-    //       await EstudanteDatabase.connection("ESTUDANTE")
-    //       .update({ turma_id: novaTurma })
-    //       .where("id", id)
-    //     } catch (error: any) {
-    //       throw new Error(error.sqlMessage);
-    //     }
-    //   };
+  getStudentByName = async (nome: string): Promise<any> => {
+    try {
+      const resultado = await EstudanteDatabase.connection("ESTUDANTE")
+        .select("*")
+        .where("nome", "like", `%${nome}%`);
+      return resultado;
+    } catch (error: any) {
+      throw new Error(error.sqlMessage);
+    }
+  };
+  //POST - Cria estudante
+
+  createStudent = async (estudante: Estudantes): Promise<void> => {
+    try {
+      await EstudanteDatabase.connection("ESTUDANTE").insert({
+        id: estudante.getId(),
+        nome: estudante.getNome(),
+        email: estudante.getEmail(),
+        data_nasc: estudante.getDataNasc(),
+        turma_id: estudante.getTurmaId(),
+      });
+    } catch (error: any) {
+      throw new Error(error.sqlMessage);
+    }
+  };
+
+  changeEstudante = async (id: string, novaTurma: string): Promise<void> => {
+    try {
+      await EstudanteDatabase.connection("ESTUDANTE")
+        .update({ turma_id: novaTurma })
+        .where("id", id);
+    } catch (error: any) {
+      throw new Error(error.sqlMessage);
+    }
+  };
 }
