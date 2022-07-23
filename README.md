@@ -30,7 +30,7 @@ Ele deve possuir, ao menos, as 3 entidades importantes:
 As funcionalidades básicas são:
 
 - [x] Criar turma
-- [ ] Buscar turmas ativas
+- [x] Buscar turmas ativas
 - [x] Mudar turma de módulo
 - [x] Criar estudante
 - [x] Buscar estudantes através do nome
