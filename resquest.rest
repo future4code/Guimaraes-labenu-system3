@@ -45,7 +45,27 @@ Content-Type: application/json
 }
 ###
 
+//DOCENTE
 
+GET http://localhost:3003/docentes
+###
+
+POST http://localhost:3003/docentes
+Content-Type: application/json
+{
+"nome": "João",
+"email": "joao@email.com",
+"data_nasc":"05/09/1991",
+"turma_id":"a65be76c-6b43-4c25-a6f9-cdf03e18ebff"
+}
+###
+
+PUT http://localhost:3003/docentes
+Content-Type: application/json
+{
+"docenteId":"745f2227-f98f-415c-8aa5-52dd9fe93e34",
+"turmaId":"25b907e6-7736-45dc-830d-5d65fc2c7ca9"
+}
 
 
 
