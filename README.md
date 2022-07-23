@@ -37,5 +37,6 @@ As funcionalidades básicas são:
 - [x] Mudar estudante de turma
 - [x] Criar docente
 - [x] Buscar todas as pessoas docentes
+- [x] Mudar docente de turma
 
 
