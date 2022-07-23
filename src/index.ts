@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import { TurmaController } from "./controller/TurmaController";
 import EstudanteController from "./controller/EstudanteController";
 import DocenteController from "./controller/DocenteController";
+import { EspecialidadesController } from "./controller/EspecialidadesController";
 
 
 //Get turmas:
