@@ -1,0 +1,29 @@
+//TURMAS
+
+GET http://localhost:3003/turmas
+###
+
+POST  http://localhost:3003/turmas 
+Content-Type: application/json
+{
+"nome":"Web Full Stack 1",
+"modulo": "0"
+}
+###
+
+PUT http://localhost:3003/turmas
+Content-Type: application/json
+{
+"id":"a65be76c-6b43-4c25-a6f9-cdf03e18ebff",
+"modulo": "2"
+}
+###
+
+
+
+
+
+
+
+
+
