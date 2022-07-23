@@ -5,54 +5,71 @@ import EstudanteController from "./controller/EstudanteController";
 import DocenteController from "./controller/DocenteController";
 import { EspecialidadesController } from "./controller/EspecialidadesController";
 
-//Get turmas:
+/*  TURMAS  */
+
+//GET - Pega todas as turmas:
 const getTurmas = new TurmaController();
 app.get("/turmas", getTurmas.getTurmas);
 
-//Create turmas:
+//GET- Pega turmas ativas:
+const getTurmasAtivas = new TurmaController();
+app.get("/turmas-ativas", getTurmasAtivas.getTurmaAtiva);
+
+//POST - Create turmas:
 const turmaController = new TurmaController();
 app.post("/turmas", turmaController.criarTurma);
 
-//Update turmas:
+//PUT - Update turmas:
 const updateModulo = new TurmaController();
 app.put("/turmas", updateModulo.changeModule);
 
-//Get estudante:
+
+/*  ESTUDANTES  */
+
+//GET - Pega todos os estudantes:
 const getEstudante = new EstudanteController();
 app.get("/estudantes", getEstudante.getStudent);
 
-//Get estudante por nome:
+//GET -  Pega estudante por nome:
 const getEstudantePorNome = new EstudanteController();
-app.get("/estudantes/", getEstudantePorNome.getStudentByName);
+app.get("/estudante", getEstudantePorNome.getStudentByName);
 
-//Create estudante:
+//POST - Create estudante:
 const estudanteController = new EstudanteController();
 app.post("/estudantes", estudanteController.createStudent);
 
-//Update turma do estudante
+//PUT - Update turma do estudante
 const updateEstudante = new EstudanteController();
 app.put('/estudantes', updateEstudante.changeEstudante)
 
-//Get docentes:
+
+/*  DOCENTES  */
+
+//GET - Pega docentes:
 const getDocentes = new DocenteController();
 app.get('/docentes', getDocentes.getAllTeachers);
 
-//Create docente:
+//POST - Create docente:
 const docenteController = new DocenteController();
 app.post('/docentes', docenteController.createTeachers);
 
-//Update docente:
+//PUT - Update docente:
 const updateModuloDocente = new DocenteController();
 app.put('/docentes', updateModuloDocente.changeModuleTeachers);
 
-//Get Especialidade:
+
+/*  ESPECIALIDADES  */
+
+//GET - Pega especialidade:
 const getEspecialidade = new EspecialidadesController();
 app.get('/especialidade', getEspecialidade.getEspecialidades)
 
-//Create Especialidade:
+//POST - Create Especialidade:
 const especialidadeController = new EspecialidadesController();
 app.post('/especialidade', especialidadeController.criarEspecialidades )
 
+
+/* */
 app.get("/test", (req: Request, res: Response) => {
   res.status(200).send("Servidor em pé! 👣");
 });

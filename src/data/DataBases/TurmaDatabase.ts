@@ -20,6 +20,17 @@ export class TurmaDatabase extends BaseDatabase {
     }
   };
 
+  getTurmaAtiva = async ():Promise<any> => {
+    try {
+      const resultado =  await TurmaDatabase.connection("TURMA")
+      .select('*')
+      .where('modulo', '<>', `${0}`)
+      return resultado
+    } catch (error) {
+      
+    }
+  }
+
   changeModule = async (id: string, novoModulo: string): Promise<void> => {
     try {
       await TurmaDatabase.connection("TURMA")
