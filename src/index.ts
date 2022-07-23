@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { TurmaController } from "./controller/TurmaController";
 import EstudanteController from "./controller/EstudanteController";
 import DocenteController from "./controller/DocenteController";
-
+import { EspecialidadesController } from "./controller/EspecialidadesController";
 
 //Get turmas:
 const getTurmas = new TurmaController();
@@ -17,11 +17,11 @@ app.post("/turmas", turmaController.criarTurma);
 const updateModulo = new TurmaController();
 app.put("/turmas", updateModulo.changeModule);
 
+//Get estudante:
+const getEstudante = new EstudanteController();
+app.get("/estudantes", getEstudante.getStudent);
 
-
-
-//Get estudante por nome
-
+//Get estudante por nome:
 const getEstudantePorNome = new EstudanteController();
 app.get("/estudantes/", getEstudantePorNome.getStudentByName);
 
@@ -30,9 +30,8 @@ const estudanteController = new EstudanteController();
 app.post("/estudantes", estudanteController.createStudent);
 
 //Update turma do estudante
-// const updateEstudante = new EstudanteController();
-// app.put('/estudantes', updateEstudante.changeEstudante)
-/* */
+const updateEstudante = new EstudanteController();
+app.put('/estudantes', updateEstudante.changeEstudante)
 
 //Get docentes:
 const getDocentes = new DocenteController();
