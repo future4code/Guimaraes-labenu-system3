@@ -32,7 +32,7 @@ app.get("/estudantes", getEstudante.getStudent);
 
 //GET -  Pega estudante por nome:
 const getEstudantePorNome = new EstudanteController();
-app.get("/estudante", getEstudantePorNome.getStudentByName);
+app.get("/estudantes/:nome", getEstudantePorNome.getStudentByName);
 
 //POST - Create estudante:
 const estudanteController = new EstudanteController();

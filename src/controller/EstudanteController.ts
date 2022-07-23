@@ -23,7 +23,7 @@ export default class EstudanteController {
     let statusCode = 400;
 
     try {
-      let { nome } = req.query;
+      let { nome } = req.params;
       if (!nome) {
         throw new Error("Nome não encontrado");
       }
