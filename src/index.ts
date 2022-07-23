@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { TurmaController } from "./controller/TurmaController";
 import EstudanteController from "./controller/EstudanteController";
 import DocenteController from "./controller/DocenteController";
-import { EstudanteDatabase } from "./data/DataBases/EstudanteDatabase";
+
 
 //Get turmas:
 const getTurmas = new TurmaController();
@@ -44,7 +44,15 @@ app.post('/docentes', docenteController.createTeachers);
 
 //Update docente:
 const updateModuloDocente = new DocenteController();
-app.put('/docentes', updateModuloDocente.changeModuleTeachers)
+app.put('/docentes', updateModuloDocente.changeModuleTeachers);
+
+//Get Especialidade:
+const getEspecialidade = new EspecialidadesController();
+app.get('/especialidade', getEspecialidade.getEspecialidades)
+
+//Create Especialidade:
+const especialidadeController = new EspecialidadesController();
+app.post('/especialidade', especialidadeController.criarEspecialidades )
 
 app.get("/test", (req: Request, res: Response) => {
   res.status(200).send("Servidor em pé! 👣");
