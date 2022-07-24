@@ -1,5 +1,6 @@
 import { Docentes } from "../Classes/Docentes";
 import { BaseDatabase } from "../BaseDatabase";
+import { EspecialidadesDatabase } from "./EspecialidadesDatabase";
 
 //GET - Buscar todas as pessoas docentes
 export class DocenteDatabase extends BaseDatabase {
@@ -14,6 +15,10 @@ export class DocenteDatabase extends BaseDatabase {
   //POST - Criar docente
   createTeacher = async (docente: Docentes): Promise<void> => {
     try {
+      await EspecialidadesDatabase.connection("ESPECIALIDADE")
+        .select("id")
+        .where("nome", "like");
+
       await DocenteDatabase.connection("DOCENTE").insert({
         id: docente.getId(),
         nome: docente.getNome(),

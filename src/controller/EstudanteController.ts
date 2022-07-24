@@ -3,6 +3,8 @@ import { EstudanteDatabase } from "../data/DataBases/EstudanteDatabase";
 import { Estudantes } from "../data/Classes/Estudantes";
 import { v4 as generateId } from "uuid";
 import moment from "moment";
+import { Hobby } from "../data/Classes/Hobby";
+import { HobbyDatabase } from "../data/DataBases/HobbyDataBase";
 
 export default class EstudanteController {
   getStudent = async (req: Request, res: Response): Promise<void> => {
@@ -43,10 +45,6 @@ export default class EstudanteController {
     try {
       const { nome, email, data_nasc, turma_id, hobbies } = req.body;
 
-      // if(!nome) {
-      //     throw new Error("Parâmetro 'nome' faltando. Favor tentar novamente.");
-      //   }
-
       const newId = generateId();
       const newDate = moment(data_nasc, "DD/MM/YYYY").format("YYYY-MM-DD");
       const estudante = new Estudantes(
@@ -58,11 +56,13 @@ export default class EstudanteController {
         hobbies
       );
 
+      const newHobby = new Hobby(newId, hobbies);
+      const hobbyDB = new HobbyDatabase();
+      await hobbyDB.createHobby(newHobby);
       const estudanteDB = new EstudanteDatabase();
-
       await estudanteDB.createStudent(estudante);
 
-      res.status(200).send("Estudante adicionado");
+      res.status(200).send(`Estudante ${nome} adicionado`);
     } catch (error: any) {
       res.status(statusCode).send(error.sqlMessage || error.message);
     }
@@ -74,15 +74,15 @@ export default class EstudanteController {
     try {
       const { id, novaTurma } = req.body;
       if (!id) {
-        throw new Error("Parâmetro 'id' faltando. Favor tentar novamente.");
+        throw new Error(`Parâmetro 'id' faltando. Favor tentar novamente.`);
       }
       if (!novaTurma) {
-        throw new Error("Parâmetro 'turma' faltando. Favor tentar novamente.");
+        throw new Error(`Parâmetro 'turma' faltando. Favor tentar novamente.`);
       }
       const estudanteDB = new EstudanteDatabase();
       await estudanteDB.changeEstudante(id, novaTurma);
 
-      res.status(200).send('Mudança de turma efetuada com sucesso');
+      res.status(200).send(`Mudança de turma efetuada com sucesso`);
     } catch (error: any) {
       res.status(statusCode).end();
     }

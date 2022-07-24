@@ -4,6 +4,7 @@ import { TurmaController } from "./controller/TurmaController";
 import EstudanteController from "./controller/EstudanteController";
 import DocenteController from "./controller/DocenteController";
 import { EspecialidadesController } from "./controller/EspecialidadesController";
+import { HobbyController } from "./controller/HobbyController";
 
 //Get turmas:
 const getTurmas = new TurmaController();
@@ -29,29 +30,37 @@ app.get("/estudantes/", getEstudantePorNome.getStudentByName);
 const estudanteController = new EstudanteController();
 app.post("/estudantes", estudanteController.createStudent);
 
+//Get hobby:
+const getHobby = new HobbyController();
+app.get("/hobby", getHobby.getHobby);
+
+//Create hobby:
+const hobbyController = new HobbyController();
+app.get("/hobby", hobbyController.criarHobby);
+
 //Update turma do estudante
 const updateEstudante = new EstudanteController();
-app.put('/estudantes', updateEstudante.changeEstudante)
+app.put("/estudantes", updateEstudante.changeEstudante);
 
 //Get docentes:
 const getDocentes = new DocenteController();
-app.get('/docentes', getDocentes.getAllTeachers);
+app.get("/docentes", getDocentes.getAllTeachers);
 
 //Create docente:
 const docenteController = new DocenteController();
-app.post('/docentes', docenteController.createTeachers);
+app.post("/docentes", docenteController.createTeachers);
 
 //Update docente:
 const updateModuloDocente = new DocenteController();
-app.put('/docentes', updateModuloDocente.changeModuleTeachers);
+app.put("/docentes", updateModuloDocente.changeModuleTeachers);
 
 //Get Especialidade:
 const getEspecialidade = new EspecialidadesController();
-app.get('/especialidade', getEspecialidade.getEspecialidades)
+app.get("/especialidade", getEspecialidade.getEspecialidades);
 
 //Create Especialidade:
 const especialidadeController = new EspecialidadesController();
-app.post('/especialidade', especialidadeController.criarEspecialidades )
+app.post("/especialidade", especialidadeController.criarEspecialidades);
 
 app.get("/test", (req: Request, res: Response) => {
   res.status(200).send("Servidor em pé! 👣");
