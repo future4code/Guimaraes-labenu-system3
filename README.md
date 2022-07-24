@@ -6,7 +6,7 @@
 - Caio Porto Ramos
 - Camila Coradi Garcia Leal
 - Laíne Reis de Moura
-
+<h2>Descrição</h2>
 <hr>
 
 Você estuda na Labenu_ há tanto tempo que já parecem anos, não é? Então, hoje, vamos pedir para criar um sistema que represente o básico da nossa organização. 
@@ -29,14 +29,14 @@ Ele deve possuir, ao menos, as 3 entidades importantes:
 
 As funcionalidades básicas são:
 
-→ Criar estudante;
+- [x] Criar turma
+- [x] Buscar turmas ativas
+- [x] Mudar turma de módulo
+- [x] Criar estudante
+- [x] Buscar estudantes através do nome
+- [x] Mudar estudante de turma
+- [x] Criar docente
+- [x] Buscar todas as pessoas docentes
+- [x] Mudar docente de turma
 
-→ Criar docente;
 
-→ Criar turma;
-
-→ Adicionar estudante na turma;
-
-→ Adicionar docente na turma;
-
-→ Pegar a idade de algum estudante a partir do id
