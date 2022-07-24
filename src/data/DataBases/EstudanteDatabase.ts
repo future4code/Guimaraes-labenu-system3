@@ -1,10 +1,8 @@
 import { Estudantes } from "../Classes/Estudantes";
 import { BaseDatabase } from "../BaseDatabase";
-import { v4 as generateId } from "uuid";
-import { Request, Response } from "express";
-import { Student } from "./types";
 
 export class EstudanteDatabase extends BaseDatabase {
+  
   //GET - Pega todos os estudantes:
 
   getStudent = async (): Promise<void> => {
@@ -14,6 +12,7 @@ export class EstudanteDatabase extends BaseDatabase {
       throw new Error(error.sqlMessage);
     }
   };
+
   //GET - Pega estudantes por nome:
 
   getStudentByName = async (nome: string): Promise<any> => {

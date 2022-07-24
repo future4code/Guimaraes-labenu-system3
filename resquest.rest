@@ -48,6 +48,18 @@ Content-Type: application/json
 }
 ###
 
+//HOBBY
+
+GET http://localhost:3003/hobby
+###
+
+POST http://localhost:3003/hobby
+Content-Type: application/json
+{
+    "nome":"Jogar futebol"
+}
+###
+
 //DOCENTE
 
 GET http://localhost:3003/docentes

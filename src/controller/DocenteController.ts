@@ -3,6 +3,8 @@ import { DocenteDatabase } from "../data/DataBases/DocenteDatabase";
 import { v4 as generateId } from "uuid";
 import moment from "moment";
 import { Docentes } from "../data/Classes/Docentes";
+import { Especialidades } from "../data/Classes/Especialidades";
+import { EspecialidadesDatabase } from "../data/DataBases/EspecialidadesDatabase";
 
 export default class DocenteController {
   getAllTeachers = async (req: Request, res: Response): Promise<void> => {
@@ -40,8 +42,10 @@ export default class DocenteController {
         especialidades
       );
 
+      const newSkill = new Especialidades(newId, especialidades);
+      const especialidadeDB = new EspecialidadesDatabase();
+      await especialidadeDB.criarEspecialidades(newSkill);
       const docenteDB = new DocenteDatabase();
-
       await docenteDB.createTeacher(docente);
 
       res.status(200).send(`Docente ${nome} adicionado`);

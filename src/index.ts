@@ -4,6 +4,7 @@ import { TurmaController } from "./controller/TurmaController";
 import EstudanteController from "./controller/EstudanteController";
 import DocenteController from "./controller/DocenteController";
 import { EspecialidadesController } from "./controller/EspecialidadesController";
+import { HobbyController } from "./controller/HobbyController";
 
 /*  TURMAS  */
 
@@ -38,35 +39,34 @@ app.get("/estudantes/:nome", getEstudantePorNome.getStudentByName);
 const estudanteController = new EstudanteController();
 app.post("/estudantes", estudanteController.createStudent);
 
-//PUT - Update turma do estudante
 const updateEstudante = new EstudanteController();
-app.put('/estudantes', updateEstudante.changeEstudante)
+app.put("/estudantes", updateEstudante.changeEstudante);
 
 
 /*  DOCENTES  */
 
 //GET - Pega docentes:
 const getDocentes = new DocenteController();
-app.get('/docentes', getDocentes.getAllTeachers);
+app.get("/docentes", getDocentes.getAllTeachers);
 
 //POST - Create docente:
 const docenteController = new DocenteController();
-app.post('/docentes', docenteController.createTeachers);
+app.post("/docentes", docenteController.createTeachers);
 
 //PUT - Update docente:
 const updateModuloDocente = new DocenteController();
-app.put('/docentes', updateModuloDocente.changeModuleTeachers);
+app.put("/docentes", updateModuloDocente.changeModuleTeachers);
 
 
 /*  ESPECIALIDADES  */
 
 //GET - Pega especialidade:
 const getEspecialidade = new EspecialidadesController();
-app.get('/especialidade', getEspecialidade.getEspecialidades)
+app.get("/especialidade", getEspecialidade.getEspecialidades);
 
 //POST - Create Especialidade:
 const especialidadeController = new EspecialidadesController();
-app.post('/especialidade', especialidadeController.criarEspecialidades )
+app.post("/especialidade", especialidadeController.criarEspecialidades);
 
 
 /* */
