@@ -20,10 +20,10 @@ Esse sistema possui 3 entidades importantes:
 <h4>Estudantes</h4>
 Representa estudantes da instituição. Eles possuem: id, nome, email, data de nascimento e os principais hobbies deles.
 
-Docente
+<h4>Docente</h4>
 Representa docentes da instituição. Eles possuem: id, nome, email, data de nascimento e todas as especialidades deles. Há 5 especialidades: React, JS, CSS, Typescript, POO.
 
-Turma
+<h4>Turma</h4>
 Toda turma é composta das seguintes características: id, nome e módulo atual em que a turma está.
 
 O módulo pode assumir os valores de 1 a 6, ou 0, indicando que as aulas dessa turma ainda não começaram.
