@@ -6,11 +6,13 @@
 - Caio Porto Ramos
 - Camila Coradi Garcia Leal
 - Laíne Reis de Moura
-<h2>Descrição</h2>
-<hr>
+
 
 📮 [Documentação](https://documenter.getpostman.com/view/19701937/UzXKWeg6)
 
+
+<h2>Descrição</h2>
+<hr>
 Você estuda na Labenu_ há tanto tempo que já parecem anos, não é? Então, hoje, vamos pedir para criar um sistema que represente o básico da nossa organização. 
 
 Ele deve possuir, ao menos, as 3 entidades importantes:
