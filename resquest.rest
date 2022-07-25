@@ -33,10 +33,11 @@ GET http://localhost:3003/estudantes/Laíne
 POST  http://localhost:3003/estudantes 
 Content-Type: application/json
 {
-"nome": "Maria",
-"email": "maria@email.com",
-"data_nasc":"08/07/1980",
-"turma_id":"a65be76c-6b43-4c25-a6f9-cdf03e18ebff"
+"nome": "Isabela",
+"email": "isabela@email.com",
+"data_nasc":"10/01/1985",
+"turma_id":"a65be76c-6b43-4c25-a6f9-cdf03e18ebff",
+"hobbies": ["Pintar"]
 }
 ###
 
@@ -68,10 +69,11 @@ GET http://localhost:3003/docentes
 POST http://localhost:3003/docentes
 Content-Type: application/json
 {
-"nome": "João",
-"email": "joao@email.com",
-"data_nasc":"05/09/1991",
-"turma_id":"a65be76c-6b43-4c25-a6f9-cdf03e18ebff"
+"nome": "Marcelo",
+"email": "marcelo@email.com",
+"data_nasc":"15/09/1989",
+"turma_id":"a65be76c-6b43-4c25-a6f9-cdf03e18ebff",
+"especialidades": ["Java"]
 }
 ###
 
