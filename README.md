@@ -17,7 +17,7 @@ Projeto de backend desenvolvido conforme proposta da Labenu para criação de um
 
 Esse sistema possui 3 entidades importantes:
 
-Estudantes
+<h4>Estudantes</h4>
 Representa estudantes da instituição. Eles possuem: id, nome, email, data de nascimento e os principais hobbies deles.
 
 Docente
