@@ -1,0 +1,110 @@
+//TURMAS
+
+GET http://localhost:3003/turmas
+###
+
+GET http://localhost:3003/turmas-ativas
+###
+
+POST  http://localhost:3003/turmas 
+Content-Type: application/json
+{
+"nome":"Web Full Stack 1",
+"modulo": "0"
+}
+###
+
+PUT http://localhost:3003/turmas
+Content-Type: application/json
+{
+"id":"a65be76c-6b43-4c25-a6f9-cdf03e18ebff",
+"modulo": "2"
+}
+###
+
+//ESTUDANTE
+
+GET http://localhost:3003/estudantes
+###
+
+GET http://localhost:3003/estudantes/Laíne
+###
+
+POST  http://localhost:3003/estudantes 
+Content-Type: application/json
+{
+"nome": "Isabela",
+"email": "isabela@email.com",
+"data_nasc":"10/01/1985",
+"turma_id":"a65be76c-6b43-4c25-a6f9-cdf03e18ebff",
+"hobbies": ["Pintar"]
+}
+###
+
+PUT http://localhost:3003/estudantes
+Content-Type: application/json
+{
+"id":"1219744a-5f2f-4b85-9cb4-5eecae5adde6",
+"novaTurma":"d536265e-d187-48c3-9be5-fb7e1d08e57f"
+}
+###
+
+//HOBBY
+
+GET http://localhost:3003/hobby
+###
+
+POST http://localhost:3003/hobby
+Content-Type: application/json
+{
+    "nome":"Jogar futebol"
+}
+###
+
+//DOCENTE
+
+GET http://localhost:3003/docentes
+###
+
+POST http://localhost:3003/docentes
+Content-Type: application/json
+{
+"nome": "Marcelo",
+"email": "marcelo@email.com",
+"data_nasc":"15/09/1989",
+"turma_id":"a65be76c-6b43-4c25-a6f9-cdf03e18ebff",
+"especialidades": ["Java"]
+}
+###
+
+PUT http://localhost:3003/docentes
+Content-Type: application/json
+{
+"docenteId":"745f2227-f98f-415c-8aa5-52dd9fe93e34",
+"turmaId":"25b907e6-7736-45dc-830d-5d65fc2c7ca9"
+}
+###
+
+//ESPECIALIDADE
+
+GET http://localhost:3003/especialidade
+###
+
+POST http://localhost:3003/especialidade
+Content-Type: application/json
+{
+    "nome":"POO (Programação Orientada a Objetos)"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
